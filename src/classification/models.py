@@ -117,3 +117,6 @@ def get_model(name: str, num_classes: int = 28, **kwargs) -> nn.Module:
             f"Unknown model '{name}'. Available: {list(MODEL_BUILDERS)}"
         )
     return MODEL_BUILDERS[name](num_classes=num_classes, **kwargs)
+
+def get_model_names() -> list[str]:
+    return list(MODEL_BUILDERS)
