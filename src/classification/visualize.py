@@ -13,7 +13,10 @@ def plot_training_curves(history: Dict[str, list], title: str = "") -> plt.Figur
     epochs = range(1, len(history["train_loss"]) + 1)
     fig, axes = plt.subplots(1, 2, figsize=(12, 4))
 
+    #Plotting training loss curves
     axes[0].plot(epochs, history["train_loss"], label="train", marker="o", ms=3)
+
+    #Plotting validation loss curves
     axes[0].plot(epochs, history["val_loss"],   label="val",   marker="s", ms=3)
     axes[0].set_xlabel("epoch"); axes[0].set_ylabel("loss")
     axes[0].set_title(f"{title} — loss".strip(" —"))
