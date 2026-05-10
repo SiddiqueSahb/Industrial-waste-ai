@@ -32,7 +32,7 @@ def build_efficientnetv2_s(num_classes: int = 28, dropout: float = 0.3,
     )
     return model
 
-
+# ViT-B/16
 def build_vit_b_16(num_classes: int = 28, dropout: float = 0.1,
                    pretrained: bool = False) -> nn.Module:
     weights = tvm.ViT_B_16_Weights.IMAGENET1K_V1 if pretrained else None
@@ -44,14 +44,12 @@ def build_vit_b_16(num_classes: int = 28, dropout: float = 0.1,
     )
     return model
 
-
+#Registry
 MODEL_BUILDERS: Dict[str, Callable[..., nn.Module]] = {
-    "convnext_tiny":     build_convnext_tiny,
-    "efficientnetv2_s":  build_efficientnetv2_s,
-    "vit_b_16":          build_vit_b_16,
+    "vit_b_16": build_vit_b_16,
 }
 
-
+#Get model from registry
 def get_model(name: str, num_classes: int = 28, **kwargs) -> nn.Module:
     if name not in MODEL_BUILDERS:
         raise KeyError(
