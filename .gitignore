@@ -1,7 +1,0 @@
-data/
-models/
-results/
-__pycache__/
-*.pt
-*.pth
-.ipynb_checkpoints/
