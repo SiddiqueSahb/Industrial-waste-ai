@@ -50,12 +50,9 @@ def build_convnextv2_tiny(num_classes: int = 28, dropout: float = 0.3,
     )
     return model
 
-<<<<<<< HEAD
 
 
 
-=======
->>>>>>> 87bc0c9b (Solved conflict)
 # ViT-B/16
 def build_vit_b_16(num_classes: int = 28, dropout: float = 0.1,
                    pretrained: bool = False) -> nn.Module:
@@ -70,7 +67,6 @@ def build_vit_b_16(num_classes: int = 28, dropout: float = 0.1,
     )
     return model
 
-<<<<<<< HEAD
 
 # Swin-V2-Tiny
 def build_swin_v2_t(num_classes: int = 28, dropout: float = 0.3,
@@ -108,18 +104,12 @@ def build_maxvit_t(num_classes: int = 28, dropout: float = 0.3,
 MODEL_BUILDERS: Dict[str, Callable[..., nn.Module]] = {
     "convnext_tiny":    build_convnext_tiny,
     "convnextv2_tiny":  build_convnextv2_tiny,
-    "efficientnetv2_s": build_efficientnetv2_s,
     "vit_b_16":         build_vit_b_16,
     "swin_v2_t":        build_swin_v2_t,
     "maxvit_t":         build_maxvit_t,
-=======
-#Registry
-MODEL_BUILDERS: Dict[str, Callable[..., nn.Module]] = {
-    "vit_b_16": build_vit_b_16,
->>>>>>> 87bc0c9b (Solved conflict)
 }
 
-#Get model from registry
+
 def get_model(name: str, num_classes: int = 28, **kwargs) -> nn.Module:
     if name not in MODEL_BUILDERS:
         raise KeyError(
