@@ -1,8 +1,8 @@
-# Industrial Waste AI
+# Industrial Waste Classification
 
-Industrial Waste AI is a computer vision and deep learning project designed to classify industrial waste images into 28 different WaRP (Waste Recycling Project) categories. The project focuses on building an intelligent and scalable waste management solution that can automate waste segregation and improve recycling efficiency using AI.
+Industrial Waste Classification is a computer vision and deep learning project designed to classify industrial waste images into 28 different WaRP (Waste Recycling Project) categories. The project focuses on building an intelligent and scalable waste management solution that can automate waste segregation and improve recycling efficiency using AI.
 
-The system combines image preprocessing, object detection, classification models, and visualization tools to create a complete industrial waste analysis pipeline.
+The system combines image preprocessing, object detection, classification models, explainability techniques, and visualization tools to create a complete industrial waste analysis pipeline.
 
 ---
 
@@ -19,12 +19,13 @@ The system combines image preprocessing, object detection, classification models
 ## Features
 
 * Industrial waste image classification
-* Deep learning based detection and recognition
+* Deep learning-based detection and recognition
 * Dataset preprocessing and augmentation
 * YOLO-based detection pipeline
 * Streamlit web application support
 * Model training and evaluation scripts
 * Visualization and experiment notebooks
+* Explainable AI experiments
 * Modular and scalable project structure
 
 ---
@@ -34,13 +35,18 @@ The system combines image preprocessing, object detection, classification models
 * Python
 * Deep Learning
 * Computer Vision
-* YOLO
+* YOLOv11
+* Vision Transformers (ViT)
+* ConvNeXt
+* Swin Transformer
+* MaxViT
 * OpenCV
 * NumPy
 * Pandas
 * Matplotlib
 * Streamlit
 * Jupyter Notebook
+* PyTorch
 
 ---
 
@@ -50,7 +56,7 @@ The system combines image preprocessing, object detection, classification models
 Industrial-waste-ai/
 │
 ├── app/
-│   └── streamlit_app.py          # Streamlit web application
+│   └── streamlit_app.py
 │
 ├── configs/
 │   ├── classification_config.yaml
@@ -101,7 +107,7 @@ Navigate to the project directory:
 cd Industrial-waste-ai
 ```
 
-Install the required dependencies:
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
@@ -111,7 +117,7 @@ pip install -r requirements.txt
 
 ## Running the Project
 
-### Run the Streamlit Application
+### Run Streamlit Application
 
 ```bash
 streamlit run app/streamlit_app.py
@@ -123,13 +129,13 @@ streamlit run app/streamlit_app.py
 python src/classification/train.py
 ```
 
-### Run Detection Training Script
+### Train Detection Model
 
 ```bash
 bash scripts/train_detector.sh
 ```
 
-### Run Classification Training Script
+### Train Classification Pipeline
 
 ```bash
 bash scripts/train_classifier.sh
@@ -140,6 +146,61 @@ bash scripts/train_classifier.sh
 ## Dataset
 
 The project uses industrial waste image datasets categorized into 28 WaRP classes for training and evaluation. The dataset is preprocessed and augmented to improve model performance and generalization.
+
+---
+
+## Classification Models and Contributors
+
+| Model | Contributor |
+|---|---|
+| Vision Transformer (ViT-B/16) | Mohammad Asim Siddique |
+| ConvNeXt V1 | Mohammad Arshad Siddique |
+| ConvNeXt V2 | Unmesh Pawar |
+| Swin Transformer (Swin-T) | Suhaib Ahmed Khan |
+| MaxViT | Mohd Yasir Ansari |
+
+---
+
+## Additional Experiments
+
+### A. Per-Class Behaviour and Confusion Analysis
+**Contributor:** Mohammad Asim Siddique
+
+* Fine-grained class-level performance analysis
+* Confusion matrix analysis
+* Per-class F1-score behaviour evaluation
+
+---
+
+### B. Explainability via Occlusion Sensitivity on ViT-B/16
+**Contributors:** Mohammad Arshad Siddique, Unmesh Pawar
+
+* Occlusion sensitivity analysis
+* Visual attention interpretation for Vision Transformers
+
+---
+
+### C. Detection Extension on WaRP-D Using YOLOv11-m (5 Super-Classes)
+**Contributors:** Mohammad Arshad Siddique, Unmesh Pawar, Mohammad Asim Siddique
+
+* Object detection on WaRP-D dataset
+* Hierarchical detection pipeline
+* Super-class based detection experiments
+* Detection-to-classification cascade analysis
+
+---
+
+## Model and Notebook Resources
+
+### Classification Experiment Notebooks
+
+[Classification Notebook Folder](https://drive.google.com/drive/folders/17DMT-zl4z_Hl5N3TIOYRxG-blCWvld8q?usp=share_link)
+
+---
+
+### Detection Model Resources
+
+[Detection Model Folder](https://drive.google.com/drive/folders/1njWOQmICC5T3CKZgopP_u3h0Dtr3IOxg?usp=drive_link)
 
 ---
 
@@ -161,25 +222,26 @@ The project uses industrial waste image datasets categorized into 28 WaRP classe
 * Mobile application integration
 * Improved model accuracy
 * IoT-enabled smart recycling systems
-* Dashboard for monitoring waste analytics
+* Waste analytics dashboard
+* Real-time industrial monitoring systems
 
 ---
 
 ## Contributors
 
-| Student Name             | Student ID |
-| ------------------------ | ---------- |
-| Mohammad Asim Siddique   | 6946816    |
-| Unmesh Pawar             | 6947243    |
-| Mohammad Arshad Siddique | 6947016    |
-| Suhaib Ahmed Khan        | 6948902    |
-| Mohd Yasir Ansari        | 6950129    |
+| Student Name | Student ID |
+|---|---|
+| Mohammad Asim Siddique | 6946816 |
+| Unmesh Pawar | 6947243 |
+| Mohammad Arshad Siddique | 6947016 |
+| Suhaib Ahmed Khan | 6948902 |
+| Mohd Yasir Ansari | 6950129 |
 
 ---
 
 ## Repository
 
-[Industrial Waste AI GitHub Repository](https://github.com/SiddiqueSahb/Industrial-waste-ai.git)
+[Industrial Waste Classification GitHub Repository](https://github.com/SiddiqueSahb/Industrial-waste-ai.git)
 
 ---
 
