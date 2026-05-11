@@ -62,10 +62,10 @@ with st.sidebar:
 @st.cache_resource(show_spinner="Loading model…")
 def _get_model(name: str):
     mc = cfg.models[name]
-    weights = MODELS_DIR / (mc.weights_file or f"{name}_best.pth")
+    weights = MODELS_DIR / (mc.weights_file or f"{name}_best.pth" or f"{name}.pth")
     return load_trained_model(
         model_name=name,
-        weights_path=weights,
+        weight_path=weights,
         num_classes=NUM_CLASSES,
         dropout=mc.dropout,
     )
@@ -295,4 +295,18 @@ elif page == "Cross-model comparison":
         st.divider()
         st.subheader("Accuracy vs parameters")
         st.scatter_chart(
-            df.dropna(subset=["Params (M)", "Accuracy"
+            df.dropna(subset=["Params (M)", "Accuracy"]),
+            x="Params (M)", y="Accuracy", color="Model", height=380,
+        )
+
+# 4. DATASET
+else:
+    st.header("Dataset — WaRP-C")
+    st.write(
+        f"{NUM_CLASSES} fine-grained recyclable-waste classes. "
+        "~8.8k training images, ~1.5k test images. "
+        "Class distribution is highly imbalanced (rarest ≈ 60× less common than most frequent)."
+    )
+    st.divider()
+    st.subheader("Classes")
+    st.write(", ".join(f"`{c}`" for c in CLASS_NAMES))

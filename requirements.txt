@@ -9,9 +9,5 @@ scikit-learn
 seaborn
 streamlit
 wandb
-numpy
-pandas
-matplotlib
-seaborn
-scikit-learn
-
+grad-cam
+yaml

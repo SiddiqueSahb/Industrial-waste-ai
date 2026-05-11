@@ -5,6 +5,7 @@ Load model from disk and run predictions on a image
 #Load the Libraries
 import torch
 import torch.nn as nn
+from torch.nn import Module
 import torch.nn.functional as F
 import numpy as np
 from pathlib import Path
@@ -20,7 +21,7 @@ def device():
         return torch.device("cpu")
 
 #load Trained model
-def load_trained_model(model_name: str, weight_path: str | Path , num_classes: int = 28,dropout: float = 0.2,
+def load_trained_model(model_name: str, weight_path: Union[str, Path] , num_classes: int = 28,dropout: float = 0.2,
 device: torch.device = device()) -> nn.Module:
     #Set device
     device = device or device()
@@ -46,7 +47,7 @@ device: torch.device = device()) -> nn.Module:
 
 #It takes an image , runs it through the model , returns class probabilities
 @torch.no_grad()
-def predict_image(model:nn.model,img:Image.Image,transform) -> np.ndarray:
+def predict_image(model:nn.Module,img:Image.Image,transform) -> np.ndarray:
     """Return class probabilities for the image"""
     #Whether model is in on cpu or gpu
     device = next(model.parameters()).device
