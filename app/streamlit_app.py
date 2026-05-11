@@ -305,7 +305,7 @@ else:
     st.write(
         f"{NUM_CLASSES} fine-grained recyclable-waste classes. "
         "~8.8k training images, ~1.5k test images. "
-        "Class distribution is highly imbalanced (rarest ≈ 60× less common than most frequent)."
+        "Class distribution is highly imbalanced ."
     )
     st.divider()
     st.subheader("Classes")
