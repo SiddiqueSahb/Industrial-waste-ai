@@ -1,4 +1,3 @@
-
 """Cross-model comparison utilities — load multiple model artifacts at once."""
 from __future__ import annotations
 from pathlib import Path
@@ -85,4 +84,3 @@ def discover_trained_models(results_root: Path | str) -> List[str]:
         if d.is_dir() and any(d.glob("*.pth")):
             out.append(d.name)
     return out
->>>>>>> fc902cb7 (Added compare.py to compare  models)

@@ -18,7 +18,7 @@ from sklearn.metrics import (
     confusion_matrix,
 )
 
-
+# Loaders
 def load_predictions(npz_path: str | Path) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     """Returns (y_true, y_pred, y_proba). y_proba shape (N, num_classes)."""
     data = np.load(str(npz_path))
@@ -38,7 +38,7 @@ def load_history(pkl_path: str | Path) -> dict:
     with open(pkl_path, "rb") as f:
         return pickle.load(f)
 
-
+# Aggregate metrics
 def compute_summary(y_true: np.ndarray, y_pred: np.ndarray,
                     y_proba: np.ndarray, num_classes: int) -> Dict[str, float]:
     """Top-line metrics for a single model."""

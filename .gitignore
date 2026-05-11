@@ -1,0 +1,16 @@
+# model weights
+*.pth
+*.pt
+*.ckpt
+
+# datasets
+data/
+datasets/
+
+# python cache
+__pycache__/
+*.pyc
+
+# environment
+venv/
+.env

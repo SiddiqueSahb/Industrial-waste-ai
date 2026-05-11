@@ -1,0 +1,105 @@
+project: WaRP-C Industrial Waste Classification
+course: EEEM068 — Applied Machine Learning, University of Surrey
+
+dataset:
+  num_classes: 28
+  num_test_images: 1551
+  # Folder names exactly as they appear under train_crops/ and test_crops/
+  # (alphabetical order -- matches sub_to_idx in COLAB_MULTI_MODEL_V2.py Cell 3)
+  classes:
+    - bottle-blue
+    - bottle-blue-full
+    - bottle-blue5l
+    - bottle-blue5l-full
+    - bottle-dark
+    - bottle-dark-full
+    - bottle-green
+    - bottle-green-full
+    - bottle-milk
+    - bottle-milk-full
+    - bottle-multicolor
+    - bottle-multicolorv-full
+    - bottle-oil
+    - bottle-oil-full
+    - bottle-transp
+    - bottle-transp-full
+    - bottle-yogurt
+    - canister
+    - cans
+    - detergent-box
+    - detergent-color
+    - detergent-transparent
+    - detergent-white
+    - glass-dark
+    - glass-green
+    - glass-transp
+    - juice-cardboard
+    - milk-cardboard
+
+augmentation:
+  image_size: 224
+  resize_for_eval: 256
+  normalize:
+    mean: [0.485, 0.456, 0.406]
+    std:  [0.229, 0.224, 0.225]
+
+models:
+  convnext_tiny:
+    family: convnext
+    backend: torchvision
+    pretrained: true
+    image_size: 224
+    resize_for_eval: 256
+    dropout: 0.3
+    weights_file: convnext_tiny_best.pth
+    metrics_file: convnext_tiny_metrics.pkl
+    history_file: convnext_tiny_history.pkl
+    preds_file:   convnext_tiny_preds.npz
+
+  convnextv2_tiny:
+    family: convnextv2
+    backend: timm                       # requires timm>=0.9.16
+    pretrained: true
+    image_size: 224
+    resize_for_eval: 256
+    dropout: 0.3                        # passed as timm `drop_rate`
+    weights_file: convnextv2_tiny_best.pth
+    metrics_file: convnextv2_tiny_metrics.pkl
+    history_file: convnextv2_tiny_history.pkl
+    preds_file:   convnextv2_tiny_preds.npz
+
+  vit_b_16:
+    family: vit
+    backend: torchvision
+    pretrained: true
+    image_size: 224
+    resize_for_eval: 256
+    dropout: 0.1
+    weights_file: vit_b_16.pth
+    metrics_file: vit_b_16_metrics.pkl
+    history_file: vit_b_16_history.pkl
+    preds_file:   vit_b_16_preds.npz
+
+  swin_v2_t:
+    family: swin
+    backend: torchvision
+    pretrained: true
+    image_size: 256
+    resize_for_eval: 288                # Swin uses 256 crop, 288 resize
+    dropout: 0.3
+    weights_file: swin_v2_t.pth
+    metrics_file: swin_v2_t_metrics.pkl
+    history_file: swin_v2_t_history.pkl
+    preds_file:   swin_v2_t_preds.npz
+
+  maxvit_t:
+    family: maxvit                      # CNN + Transformer hybrid
+    backend: torchvision
+    pretrained: true
+    image_size: 224
+    resize_for_eval: 256
+    dropout: 0.3
+    weights_file: maxvit_t.pth
+    metrics_file: maxvit_t_metrics.pkl
+    history_file: maxvit_t_history.pkl
+    preds_file:   maxvit_t_preds.npz
