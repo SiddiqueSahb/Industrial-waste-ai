@@ -3,7 +3,7 @@ course: EEEM068 — Applied Machine Learning, University of Surrey
 
 dataset:
   num_classes: 28
-  num_test_images: 1551
+  num_test_images: 1583
   # Folder names exactly as they appear under train_crops/ and test_crops/
   # (alphabetical order -- matches sub_to_idx in COLAB_MULTI_MODEL_V2.py Cell 3)
   classes:
