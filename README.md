@@ -4,6 +4,19 @@ Industrial Waste Classification is a computer vision and deep learning project d
 
 The system combines image preprocessing, object detection, classification models, explainability techniques, and visualization tools to create a complete industrial waste analysis pipeline.
 
+
+## Project Output
+
+### Industrial Waste Classification
+
+<p align="center">
+</p><img width="1468" height="836" alt="Screenshot 2026-06-26 at 8 47 18 PM" src="https://github.com/user-attachments/assets/3a24b322-6ca7-4258-ac41-d02919a69a49" />
+<img width="1457" height="834" alt="Screenshot 2026-06-26 at 8 48 30 PM" src="https://github.com/user-attachments/assets/87c52f20-7424-42a8-8226-a88cabff8b47" />
+<img width="1465" height="830" alt="Screenshot 2026-06-26 at 8 54 26 PM" src="https://github.com/user-attachments/assets/055dc460-6a0f-467b-8136-e428f31c77d0" />
+<img width="1468" height="830" alt="Screenshot 2026-06-26 at 8 55 26 PM" src="https://github.com/user-attachments/assets/f77a95ca-4cfb-4825-96b3-745bc36870b3" />
+<img width="1470" height="837" alt="Screenshot 2026-06-26 at 8 56 29 PM" src="https://github.com/user-attachments/assets/d53bb4b1-1ec0-4f16-a126-bac4c9c894d0" />
+
+
 ---
 
 ## Project Objectives
