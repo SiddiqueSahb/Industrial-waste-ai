@@ -1,0 +1,59 @@
+name: API smoke test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  # Fast feedback: run the service directly on the runner
+  api-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: api/requirements.txt
+
+      - name: Install dependencies (CPU torch)
+        run: |
+          pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+          pip install -r api/requirements.txt httpx
+
+      - name: Start API (untrained weights — checkpoints are not in git)
+        run: |
+          ALLOW_UNTRAINED=1 DEVICE=cpu nohup uvicorn api.main:app --port 8000 > api.log 2>&1 &
+
+      - name: Run smoke test
+        run: BASE_URL=http://localhost:8000 python tests/smoke_test.py
+
+      - name: Show server log on failure
+        if: failure()
+        run: cat api.log
+
+  # Prove the Dockerfile builds and the container serves predictions
+  docker-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build image
+        run: docker build -t warp-api:ci .
+
+      - name: Run container
+        run: docker run -d --name warp-api -p 8080:8080 -e ALLOW_UNTRAINED=1 warp-api:ci
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run smoke test against container
+        run: |
+          pip install httpx pillow
+          BASE_URL=http://localhost:8080 python tests/smoke_test.py
+
+      - name: Show container log on failure
+        if: failure()
+        run: docker logs warp-api
