@@ -1,5 +1,6 @@
 torch
 torchvision
+timm
 ultralytics
 opencv-python
 matplotlib
@@ -8,6 +9,7 @@ numpy
 scikit-learn
 seaborn
 streamlit
-wandb
+mlflow
 grad-cam
-yaml
+pyyaml
+tabulate

@@ -1,0 +1,34 @@
+                         precision    recall  f1-score   support
+
+            bottle-blue     0.7327    0.7115    0.7220       104
+       bottle-blue-full     0.7586    0.5116    0.6111        43
+          bottle-blue5l     0.7571    0.7361    0.7465        72
+     bottle-blue5l-full     0.8182    0.7500    0.7826        24
+            bottle-dark     0.8586    0.8947    0.8763        95
+       bottle-dark-full     0.8065    0.7353    0.7692        34
+           bottle-green     0.7750    0.8378    0.8052        74
+      bottle-green-full     0.7105    0.7941    0.7500        34
+            bottle-milk     0.6056    0.7544    0.6719        57
+       bottle-milk-full     0.6667    0.8571    0.7500        21
+      bottle-multicolor     0.5769    0.5357    0.5556        28
+bottle-multicolorv-full     0.8571    0.8571    0.8571        21
+             bottle-oil     0.6667    0.1667    0.2667        48
+        bottle-oil-full     0.8333    0.6250    0.7143         8
+          bottle-transp     0.6762    0.8120    0.7379       234
+     bottle-transp-full     0.7071    0.7609    0.7330        92
+          bottle-yogurt     0.5610    0.5476    0.5542        42
+               canister     0.8846    0.7667    0.8214        30
+                   cans     0.8824    0.9184    0.9000        98
+          detergent-box     0.8889    0.9412    0.9143        17
+        detergent-color     0.7568    0.6512    0.7000        43
+  detergent-transparent     0.7143    0.4878    0.5797        41
+        detergent-white     0.7143    0.5814    0.6410        43
+             glass-dark     0.9565    0.8800    0.9167        25
+            glass-green     0.9524    0.8000    0.8696        25
+           glass-transp     0.8056    0.8056    0.8056        36
+        juice-cardboard     0.6341    0.7647    0.6933        68
+         milk-cardboard     0.8427    0.7979    0.8197        94
+
+               accuracy                         0.7453      1551
+              macro avg     0.7643    0.7244    0.7345      1551
+           weighted avg     0.7488    0.7453    0.7386      1551

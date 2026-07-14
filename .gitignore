@@ -16,3 +16,13 @@ __pycache__/
 # environment
 venv/
 .env
+
+# experiment tracking
+mlruns/
+
+# smoke-test artifacts
+*_smoke.*
+*_smoke.pth
+
+# macOS
+.DS_Store

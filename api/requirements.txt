@@ -1,0 +1,13 @@
+# Runtime dependencies for the inference service only (no training stack).
+# torch/torchvision are installed separately in the Dockerfile from the
+# CPU-only wheel index to keep the image small.
+torch
+torchvision
+timm
+fastapi
+uvicorn[standard]
+python-multipart
+pillow
+numpy
+pyyaml
+google-cloud-storage
